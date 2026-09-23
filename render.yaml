@@ -1,0 +1,15 @@
+# Render Blueprint: New > Blueprint > pick this repo (or create a Static Site by hand with the same values)
+services:
+  - type: web
+    name: bhashasetu
+    runtime: static
+    buildCommand: npm ci && npm run build
+    staticPublishPath: dist
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+    headers:
+      # translation model: let browsers cache it (68 MB, changes only when the file name changes)
+      - path: /models/*
+        name: Cache-Control
+        value: public, max-age=604800

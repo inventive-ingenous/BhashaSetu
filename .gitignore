@@ -1,0 +1,10 @@
+node_modules
+dist
+# full-size training checkpoints - keep them out of the repo (convert with tools/convert_mt5.py)
+*.zip
+model.safetensors
+# offline speech model + ONNX Runtime files: downloaded by `npm run setup:whisper`
+public/models/whisper-*/
+public/models/asr.json
+public/ort/
+*.part
